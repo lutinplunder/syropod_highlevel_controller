@@ -131,6 +131,10 @@ void StateController::init(void)
   {
     gait_selection_ = TRIPOD_GAIT;
   }
+  else if (params_.gait_type.data == "tetrapod_gait")
+  {
+    gait_selection_ = TETRAPOD_GAIT;
+  }
   else if (params_.gait_type.data == "ripple_gait")
   {
     gait_selection_ = RIPPLE_GAIT;
@@ -1944,6 +1948,9 @@ void StateController::initGaitParameters(const GaitDesignation &gait_selection)
   {
     case (TRIPOD_GAIT):
       params_.gait_type.data = "tripod_gait";
+      break;
+    case (TETRAPOD_GAIT):
+      params_.gait_type.data = "tetrapod_gait";
       break;
     case (RIPPLE_GAIT):
       params_.gait_type.data = "ripple_gait";

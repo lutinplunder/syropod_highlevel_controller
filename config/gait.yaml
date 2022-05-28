@@ -27,14 +27,25 @@ syropod:
 
       offset_multiplier: {AR: 0, BR: 1, CR: 0, CL: 1, BL: 0, AL: 1}
 
-########################################################################################################################
+    ########################################################################################################################
+
+    # Step order: DR/CL,AR/BL,CR/DL,BR/AL
+    tetrapod_gait:
+
+      stance_phase: 2
+      swing_phase: 2
+      phase_offset: 2
+
+      offset_multiplier: {AR: 0, BR: 1, CR: 0, DR: 1, DL: 0, CL: 1, BL: 0, AL: 1}
+
+    ########################################################################################################################
 
     # Step order: AR,CL,BR,AL,CR,BL (overlapping)
     ripple_gait:
 
       stance_phase: 4
       swing_phase: 2
-      phase_offset: 1 
+      phase_offset: 1
 
       offset_multiplier: {AR: 2, BR: 0, CR: 4, CL: 1, BL: 3, AL: 5}
 

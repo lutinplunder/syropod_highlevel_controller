@@ -43,6 +43,7 @@ enum GaitDesignation
   AMBLE_GAIT,             ///< Amble gait designation - as defined in config/gait.yaml
   RIPPLE_GAIT,            ///< Ripple gait designation - as defined in config/gait.yaml
   TRIPOD_GAIT,            ///< Tripod gait designation - as defined in config/gait.yaml
+  TETRAPOD_GAIT,          ///< Tetrapod gait designation - as defined in config/gait.yaml
   GAIT_DESIGNATION_COUNT, ///< Misc enum defining number of Gait Designations
   GAIT_UNDESIGNATED = -1, ///< Undesignated gait
 };
