@@ -16,8 +16,8 @@ syropod:
 
 ########################################################################################################################
     # Hardware interface parameters
-    individual_control_interface: true #Use for Gazebo or 'Dynamixel Controller' (OLD)
-    combined_control_interface:   true #Use for 'Dynamixel Interface' (NEW)
+    individual_control_interface: false #Use for Gazebo or 'Dynamixel Controller' (OLD)
+    combined_control_interface:   false #Use for 'Dynamixel Interface' (NEW)
 
 ########################################################################################################################
     # Model parameters
