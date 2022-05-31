@@ -85,6 +85,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        Abdomen_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         AL_base_link:
           Alpha: 1
           Show Axes: false
