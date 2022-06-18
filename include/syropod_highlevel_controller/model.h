@@ -22,7 +22,7 @@
 #define BEARING_STEP 45          ///< Step to increment bearing in workspace generation algorithm (deg)
 #define MAX_POSITION_DELTA 0.002 ///< Position delta to increment search position in workspace generation algorithm (m)
 #define MAX_WORKSPACE_RADIUS 1.0 ///< Maximum radius allowed in workspace polygedron plane (m)
-#define WORKSPACE_LAYERS 10      ///< Number of planes in workspace polyhedron
+#define WORKSPACE_LAYERS 20     ///< Number of planes in workspace polyhedron
 
 class Leg;
 class Joint;
@@ -170,7 +170,7 @@ private:
   const Parameters& params_;                     ///< Pointer to parameter structure for storing parameter variables
   std::shared_ptr<DebugVisualiser> debug_visualiser_; ///< Pointer to debug visualiser object
   LegContainer leg_container_;                   ///< The container map for all robot model leg objects
-  
+
   int leg_count_;                ///< The number of leg objects within the robot model
   double time_delta_;            ///< The time period of the ros cycle
   Pose current_pose_;            ///< Current pose of robot model body (i.e. walk_plane -> base_link)
@@ -327,10 +327,6 @@ public:
   /// @param[in] publisher The new ros publisher to publish leg state messages
   inline void setStatePublisher(const ros::Publisher& publisher) { leg_state_publisher_ = publisher; };
 
-  /// Modifier for the publisher of ASC state messages.
-  /// @param[in] publisher The new ros publisher to publish ASC state messages
-  inline void setASCStatePublisher(const ros::Publisher& publisher) { asc_leg_state_publisher_ = publisher; };
-
   /// Modifier for the LegStepper object associated with this leg.
   /// @param[in] leg_stepper A pointer to the new LegStepper object for this leg
   inline void setLegStepper(std::shared_ptr<LegStepper> leg_stepper) { leg_stepper_ = leg_stepper; };
@@ -382,10 +378,6 @@ public:
   /// Publishes the given message via the leg state pubisher object.
   /// @param[in] msg The leg state message to be published
   inline void publishState(const syropod_highlevel_controller::LegState& msg) { leg_state_publisher_.publish(msg); };
-
-  /// Publishes the given message via the ASC leg state pubisher object.
-  /// @param[in] msg The ASC leg state message to be published
-  inline void publishASCState(const std_msgs::Bool& msg) { asc_leg_state_publisher_.publish(msg); };
 
   /// Generates child joint/link/tip objects and copies state from reference leg if provided.
   /// Separated from constructor due to shared_from_this() constraints.
@@ -509,7 +501,6 @@ private:
   Workspace workspace_;         ///< Polyhedron (planes of radii) representing workspace of this leg
 
   ros::Publisher leg_state_publisher_;     ///< The ros publisher object that publishes state messages for this leg
-  ros::Publisher asc_leg_state_publisher_; ///< The ros publisher object that publishes ASC state messages for this leg
 
   Eigen::Vector3d admittance_delta_; ///< The admittance controller tip position offset vector
   double virtual_mass_;              ///< The virtual mass of the admittance controller virtual model of this leg

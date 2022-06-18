@@ -199,7 +199,6 @@ Leg::Leg(std::shared_ptr<Leg> leg, std::shared_ptr<Model> model)
 {
   model_ = (model == NULL ? leg->model_ : model);
   leg_state_publisher_ = leg->leg_state_publisher_;
-  asc_leg_state_publisher_ = leg->asc_leg_state_publisher_;
   admittance_delta_ = leg->admittance_delta_;
   virtual_mass_ = leg->virtual_mass_;
   virtual_stiffness_ = leg->virtual_stiffness_;

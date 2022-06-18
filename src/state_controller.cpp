@@ -102,7 +102,6 @@ StateController::StateController(void)
     std::shared_ptr<Leg> leg = leg_it_->second;
     std::string topic_name = "shc/" + leg->getIDName() + "/state";
     leg->setStatePublisher(n.advertise<syropod_highlevel_controller::LegState>(topic_name, 1000));
-    leg->setASCStatePublisher(n.advertise<std_msgs::Bool>("leg_state_" + leg->getIDName() + "_bool", 1)); // TODO
     // If debugging in gazebo, setup joint command publishers
     if (params_.individual_control_interface.data)
     {
@@ -1789,6 +1788,7 @@ void StateController::initParameters(void)
 
   // Model parameters
   params_.syropod_type.init("syropod_type");
+  params_.abdomen_id.init("abdomen_id");
   params_.leg_id.init("leg_id");
   params_.joint_id.init("joint_id");
   params_.link_id.init("link_id");

@@ -119,7 +119,6 @@ public:
   /// Debugging functions
 
   /// Iterates through leg objects and collates state information for publishing on custom leg state message topic.
-  /// @todo Remove ASC state messages in line with requested hardware changes to use legState message variable/s
   void publishLegState(void);
 
   /// Publishes current desired linear and angular body velocity for debugging.

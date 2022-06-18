@@ -228,10 +228,6 @@ For information on parameters see [readme.md](config/readme.md) in config folder
   * Description: The desired pose of the robot body.
   * Topic: */syropod_highlevel_controller/pose*
   * Type: geometry_msgs::Twist
-* ASC Hexapod State: (To be removed)
-  * Description: ASC Hexapod specific message for toggling of magnetic feet (bool of whether each leg is in stance state or not)
-  * Topic: */leg\_state\_\*LEG_ID\*\_bool*
-  * Type: std_msgs::Bool
 * Leg State:
   * Description: The leg state message combines several leg specific data for use in debugging.
     * header: Header with timestamp

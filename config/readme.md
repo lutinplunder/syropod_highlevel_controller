@@ -25,9 +25,9 @@
       (default: false)
       
 ### /syropod/parameters/rough_terrain_mode: 
-    Sets whether rough terrain mode is on/off. Rough terrain mode uses various tip sensing data and/or external planners to actively adjust tip 
-    trajectory whilst approaching touchdown and estimates a walk plane for legs on uneven ground. Allows for traversal 
-    of rough terrain, stair climbing and transitioning to/from inclined/declined terrain.
+    Sets whether rough terrain mode is on/off. Rough terrain mode uses various tip sensing data and/or external planners
+    to actively adjust tip trajectory whilst approaching touchdown and estimates a walk plane for legs on uneven ground.
+    Allows for traversal of rough terrain, stair climbing and transitioning to/from inclined/declined terrain.
       (type: bool)
       (default: false)
 
@@ -126,7 +126,8 @@
       (type: Bool)
       
 ### /syropod/parameters/ignore_IK_warnings:
-    Bool denoting if inverse kinematics function will ignore warnings of deviation from desired position due to exceeding joint position/velocity limits. Ignoring warnings stops warning messages from being sent to rosconsole.
+    Bool denoting if inverse kinematics function will ignore warnings of deviation from desired position due to
+    exceeding joint position/velocity limits. Ignoring warnings stops warning messages from being sent to rosconsole.
       (default: true)
       (type: Bool)
 
@@ -248,12 +249,16 @@
       (default: false)
       
 ### /syropod/parameters/touchdown_threshold:
-    A value used as a threshold to determine if a leg has 'touched down' onto the step surface. This threshold is compared against any data coming through the 'tip_states' topic and is not limited to any specific unit, eg: force in N, pressure in Pa, current in A or normalised.
+    A value used as a threshold to determine if a leg has 'touched down' onto the step surface. This threshold is
+    compared against any data coming through the 'tip_states' topic and is not limited to any specific unit, eg: force
+    in N, pressure in Pa, current in A or normalised.
       (type: double)
       (default: 0.9)
       
 ### /syropod/parameters/liftoff_threshold:
-    A value used as a threshold to determine if a leg has 'lifted off' of the step surface. This threshold is compared against any data coming through the 'tip_states' topic and is not limited to any specific unit, eg: force in N, pressure in Pa, current in A or normalised.
+    A value used as a threshold to determine if a leg has 'lifted off' of the step surface. This threshold is compared
+    against any data coming through the 'tip_states' topic and is not limited to any specific unit, eg: force in N,
+    pressure in Pa, current in A or normalised.
       (type: double)
       (default: 0.1)
 
