@@ -613,10 +613,6 @@ void Leg::generateDesiredJointStateMsg(sensor_msgs::JointState *joint_state_msg)
     joint_state_msg->velocity.push_back(joint->desired_velocity_);
     joint_state_msg->effort.push_back(joint->desired_effort_);
   }
-  joint_state_msg->name.push_back("Abdomen_joint");
-  joint_state_msg->position.push_back(0.0);
-  joint_state_msg->velocity.push_back(0.0);
-  joint_state_msg->effort.push_back(0.0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
