@@ -126,7 +126,7 @@ public:
   /// @param[in] leg_id_name The identification name of the requested leg object pointer
   /// @return The pointer to leg requested via identification name input
   std::shared_ptr<Leg> getLegByIDName(const std::string& leg_id_name);
-  
+ 
   /// Accessor for imu data.
   /// @return The imu data structure of the robot model
   inline ImuData getImuData(void) 
