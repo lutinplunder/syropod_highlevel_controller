@@ -805,7 +805,7 @@ void StateController::publishDesiredJointState(void)
   if (params_.combined_control_interface.data)
   {
     joint_state_msg.name.push_back("Abdomen_joint");
-    joint_state_msg.position.push_back(body_pose_ * -1);
+    joint_state_msg.position.push_back(body_pose_);
     joint_state_msg.velocity.push_back(0.0);
     joint_state_msg.effort.push_back(0.0);
   }
@@ -1804,7 +1804,6 @@ void StateController::initParameters(void)
 
   // Model parameters
   params_.syropod_type.init("syropod_type");
-  params_.abdomen_id.init("abdomen_id");
   params_.leg_id.init("leg_id");
   params_.joint_id.init("joint_id");
   params_.link_id.init("link_id");
