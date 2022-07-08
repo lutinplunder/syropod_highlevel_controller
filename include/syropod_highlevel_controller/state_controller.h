@@ -258,6 +258,8 @@ public:
   /// @param[in] tip_states The TipState sensor message provided by the subscribed ros topic "/tip_states"
   void tipStatesCallback(const syropod_highlevel_controller::TipState &tip_states);
 
+  void bodyPoseCallback(const geometry_msgs::Twist& body_pose_msg);
+  
   /// Callback which handles setting target configuration for pose controller from planner interface.
   /// @param[in] target_configuration The desired configuration that the planner requests transition to
   void targetConfigurationCallback(const sensor_msgs::JointState &target_configuration);
@@ -300,6 +302,7 @@ private:
   ros::Subscriber imu_data_subscriber_;    ///< Subscriber for topic /SYROPOD_TYPE/imu/data
   ros::Subscriber joint_state_subscriber_; ///< Subscriber for topic /joint_states
   ros::Subscriber tip_state_subscriber_;   ///< Subscriber for topic /tip_states
+  ros::Subscriber pose_subscriber_;        ///< Subscriber for topic /shc/pose
 
   ros::Publisher desired_joint_state_publisher_; ///< Publisher for topic /desired_joint_state
   ros::Publisher velocity_publisher_;            ///< Publisher for topic /shc/velocity
@@ -368,6 +371,7 @@ private:
   Eigen::Vector3d secondary_tip_velocity_input_; ///< Input for the desired linear velocity of the secondary leg tip
   Eigen::Vector2d linear_cruise_velocity_;       ///< Desired constant linear body velocity for cruise control mode
   double angular_cruise_velocity_;               ///< Desired constant angular body velocity for cruise control mode
+  double body_pose_;
 
   LegContainer::iterator leg_it_;     ///< Leg iteration member variable used to minimise code
   JointContainer::iterator joint_it_; ///< Joint iteration member variable used to minimise code
