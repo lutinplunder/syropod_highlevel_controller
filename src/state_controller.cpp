@@ -83,6 +83,7 @@ StateController::StateController(void)
   imu_data_subscriber_ = n.subscribe("imu/data", 1, &StateController::imuCallback, this);
   joint_state_subscriber_ = n.subscribe("joint_states", 100, &StateController::jointStatesCallback, this);
   tip_state_subscriber_ = n.subscribe("tip_states", 1, &StateController::tipStatesCallback, this);
+  pose_subscriber_ = n.subscribe("shc/pose", 1, &StateController::bodyPoseCallback, this);
 
   // Set up debugging publishers
   velocity_publisher_ = n.advertise<geometry_msgs::Twist>("shc/velocity", 1000);
@@ -801,6 +802,14 @@ void StateController::publishDesiredJointState(void)
     }
   }
 
+  if (params_.combined_control_interface.data)
+  {
+    joint_state_msg.name.push_back("Abdomen_joint");
+    joint_state_msg.position.push_back(body_pose_ * -1);
+    joint_state_msg.velocity.push_back(0.0);
+    joint_state_msg.effort.push_back(0.0);
+  }
+  
   if (params_.combined_control_interface.data)
   {
     desired_joint_state_publisher_.publish(joint_state_msg);
@@ -1679,6 +1688,13 @@ void StateController::tipStatesCallback(const syropod_highlevel_controller::TipS
   {
     ROS_ERROR_THROTTLE(THROTTLE_PERIOD, "%s", error_string.c_str());
   }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void StateController::bodyPoseCallback(const geometry_msgs::Twist &body_pose_msg)
+{
+  body_pose_ = body_pose_msg.angular.y;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
