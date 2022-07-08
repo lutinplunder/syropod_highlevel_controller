@@ -288,7 +288,6 @@ struct Parameters
 
   // Model parameters
   Parameter<std::string> syropod_type;             ///< The type of the robot described by these parameters
-  Parameter<std::vector<std::string>> abdomen_id;  ///< A vector of identification names for the abdomen of the robot
   Parameter<std::vector<std::string>> leg_id;      ///< A vector of identification names for each leg of the robot
   Parameter<std::vector<std::string>> joint_id;    ///< A vector of identification names for each joint of each leg
   Parameter<std::vector<std::string>> link_id;     ///< A vector of identification names for each link of each leg
